@@ -10,12 +10,17 @@ router.get('/',(req,res,next)=>{
 });
 
 router.post('/',(req,res,next)=>{
+    const order={
+        Item:req.body.Item,
+        orderId:req.body.orderId
+    }
     res.status(201).json({
-        meassage:"orders created"
+        meassage:"orders created",
+        order:order
     });
 });
 
-router.get('/orderId',(req,res,next)=>{
+router.get('/:orderId',(req,res,next)=>{
     res.status(200).json({
         meassage:"orders details",
         orderId:Request.params.orderId
